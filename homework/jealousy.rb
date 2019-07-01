@@ -47,4 +47,29 @@ results = [
 "со временем.Вы должны решать волнующие вас проблемы со своим партнером."
 ]
 # Счетчик ответов да
-yes_ans = 0
+yes_answers = 0
+
+for item in questions do
+  puts item
+
+  user_input = nil
+
+  while user_input != 'yes' and user_input != 'no'
+    puts 'Введите yes или no и нажмите ввод'
+    user_input = STDIN.gets.chomp.downcase # получаем ввод от пользователя и сохраняем в нижнем регистре
+  end
+  if user_input == 'yes'
+    yes_answers += 1
+  end
+end
+
+puts "\n #{name}"
+puts "\n Ваш результат теста (ответов да - #{yes_answers}): "
+
+if yes_answers >= 10
+  puts results[0]
+elsif yes_answers >= 5
+  puts results[1]
+else
+  puts results[2]
+end
